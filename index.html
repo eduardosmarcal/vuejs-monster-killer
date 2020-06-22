@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This is my first Vue.js 2 project. It is a very simple game called Monster Killer.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Vue.js">
+    <meta name="author" content="Eduardo S. Marcal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 2 - Monster Killer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="app" class="wrapper">
+        <div class="row">
+            <div class="column">
+                <h2>Player</h2>
+                <div class="progress-bar">
+                    <span class="progress" :class="playerProgressBar" :style="{ width: `${playerLife}%` }"></span>
+                </div>
+                <div class="life">{{ playerLife }}%</div>
+            </div>
+            <div class="column">
+                <h2>Monster</h2>
+                <div class="progress-bar">
+                    <span class="progress" :class="monsterProgressBar" :style="{ width: `${monsterLife}%` }"></span>
+                </div>
+                <div class="life">{{ monsterLife }}%</div>
+            </div>
+        </div>
+        <div v-if="gameOver" class="row">
+            <span :class="gameOverFeedback.status">{{ gameOverFeedback.message }}</span>
+        </div>
+        <div class="row">
+            <template v-if="isPlaying && !gameOver">
+                <button type="button" class="red" :disabled="gameOver" @click="attack()">Attack</button>
+                <button type="button" class="yellow" :disabled="gameOver"  @click="attack(true)">Special Attack</button>
+                <button type="button" class="green" :disabled="gameOver || playerLife === 100" @click="heal()">Heal</button>
+                <button type="button" class="gray" @click="init()">Give Up</button>
+            </template>
+            <button v-else type="button" class="blue" @click="newGame()">Start New Game</button>
+        </div>
+        <div v-if="logs.length" class="row logs">
+            <template v-for="log in logs">
+                <div class="log" :class="log.class">{{ log.message }}</div>
+            </template>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

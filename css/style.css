@@ -1,0 +1,164 @@
+:root {
+  --spacer: 1.25rem;
+  --button-spacer: .5rem;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  margin: 0 0 .5rem;
+}
+
+button {
+  border-width: 1px;
+  border-radius: .25rem;
+  border-style: solid;
+  color: white;
+  cursor: pointer;
+  margin-left: var(--button-spacer);
+  margin-right: var(--button-spacer);
+  outline: none;
+  padding: .375rem .625rem;
+  text-transform: uppercase;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .4;
+}
+
+button.blue {
+  background-color: #007bff;
+  border-color: #0069D9;
+}
+
+button.blue:not([disabled]):hover {
+  background-color: #0069D9;
+}
+
+button.red {
+  background-color: #DC3545;
+  border-color: #bd2130;
+}
+
+button.red:not([disabled]):hover {
+  background-color: #bd2130;
+}
+
+button.yellow {
+  background-color: #FFC107;
+  border-color: #d39e00;
+  color: black;
+}
+
+button.yellow:not([disabled]):hover {
+  background-color: #d39e00;
+}
+
+button.green {
+  background-color: #28A745;
+  border-color: #1e7e34;
+}
+
+button.green:not([disabled]):hover {
+  background-color: #1e7e34;
+}
+
+button.gray {
+  background-color: #6C757D;
+  border-color: #545b62;
+}
+
+button.gray:not([disabled]):hover {
+  background-color: #545b62;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  border: 1px solid #F1F1F1;
+  box-shadow: 0 2px 8px 2px #F1F1F1;
+  display: flex;
+  justify-content: center;
+  margin: 0 var(--spacer) var(--spacer);
+  padding: var(--spacer);
+}
+
+.row:first-child {
+  margin-top: var(--spacer);
+}
+
+.row.logs {
+  flex-direction: column;
+}
+
+.column {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.progress-bar {
+  border: 1px solid #666;
+  height: var(--spacer);
+  margin-bottom: .25rem;
+  max-width: 500px;
+  width: 90%;
+}
+
+.progress {
+  background-color: green;
+  display: inline-block;
+  height: 100%;
+}
+
+.progress.warning {
+  background-color: #FFC107;
+}
+
+.progress.danger {
+  background-color: #bd2130;
+}
+
+.log {
+  color: #FFF;
+  display: flex;
+  font-size: .875rem;
+  justify-content: center;
+  margin-bottom: .25rem;
+  padding: .25rem;
+  text-transform: uppercase;
+}
+
+.log:last-child {
+  margin-bottom: 0;
+}
+
+.log.player {
+  border: 1px solid #0f96ab;
+  background-color: #17A2B8;
+}
+
+.log.monster {
+  border: 1px solid #bf2c2c;
+  background-color: #cf3838;
+}
+
+.win {
+  color: #0069D9;
+  font-weight: 600;
+}
+
+.lose {
+  color: #bd2130;
+  font-weight: 600;
+}
